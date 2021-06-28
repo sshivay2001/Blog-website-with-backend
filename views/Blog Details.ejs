@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- title %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+ <div class="container">
+     <div class="cont1" style="display: block;float: right;">
+        <a class="link" data-doc="<%= blog._id %>"><button type="button" class="btn btn-default" style="justify-content: right;align-items: flex-end;margin-left: 90rem;">
+            <span class="glyphicon glyphicon-trash"><h8 style="font-family: sans-serif;margin-left: 2px;" >Delete</h8></span>
+          </button>
+        </a>
+     </div>
+        <div class="cont2" style="display: flex;flex-direction: column;margin-left: 2rem;">
+                <h3><%= blog.title %></h3>
+                <p><%= blog.content %></p>
+    </div>
+        
+           
+ </div>  
+    
+ <%- include('./partials/foot.ejs') %>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<script>
+    var can=document.querySelector("a.link");
+    
+    can.addEventListener('click',(e)=>{
+        var endpoint=`/blogs/${can.dataset.doc}`;
+
+        fetch(endpoint, {
+            method:'DELETE'
+        })
+        .then((response)=>response.json())
+        .then((data)=>{
+            window.location.href=data.redirect;
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
+    });
+</script>
+</body>
+</html>

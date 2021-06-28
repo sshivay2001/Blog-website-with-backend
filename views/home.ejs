@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<body>
+ 
+    <%- include('./partials/nav.ejs') %>
+    <div class="container">
+    <div class="jumbotron">
+     
+        <h3 style="color: rgb(103, 99, 99);">Regroup&Create!</h3>
+       <h5 style="color: rgb(83, 81, 81);"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis quos vel esse magni rerum! Nemo.</h5>
+     
+    </div>
+    </div>
+  <div class="container">
+    <div class="row" >
+      <div class="col-sm-10 col-md-10 offset-m-1 col-lg-10">
+     <% if (blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
+      <a class="Anchor" href="/blogs/<%=blog._id %>" style="text-decoration: none;">
+      <h4 style="margin-left: 4px;"><%= blog.title %></h4>
+      <p style="color: black;margin-left: 28px;"><%= blog.snip %></p>
+      </a>
+    <% }) %>
+  <% } else { %>
+
+  <h3>There are no blogs....</h3>
+  <% } %>
+
+</div>
+</div>
+</div>
+<%- include('./partials/foot.ejs') %>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+</body>
+</html>

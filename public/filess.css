@@ -1,0 +1,10 @@
+body{
+    
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+.line:nth-child(1)
+{
+    margin-top: 14px;
+}

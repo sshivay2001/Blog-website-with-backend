@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+  <div class="container" style="padding:24px;">
+    <form action="/blogs" method="POST">
+    <div style="margin-top: 18px;margin-bottom: 18px;">
+        <label class="title" style="font-size: 2rem;" for="title">Title</label>
+        <div><input type="text" id="title" style="width: 30rem;height: 3rem;" name="title" required></div>
+    </div>
+    <div style="margin-top: 20px;margin-bottom: 20px;">
+    <label class="snip" style="font-size: 2rem;" for="snip">Snippet</label>
+    <div><input type="text" id="snip" style="width: 40rem;height: 3rem;" name="snip" required>
+    </div>
+    </div>
+    <div style="margin-top: 18px;margin-bottom: 18px;">
+    <label class="cont" style="font-size: 2rem;" for="content">Content</label>
+    <div><textarea id="content" rows="8" cols="100" name="content" required></textarea></div>
+    <div><button class="btn btn-primary" style="margin-top: 24px;">SUBMIT</button></div>
+    </form>
+    <%- include('./partials/foot.ejs') %>
+</div>
+</body>
+</html>
